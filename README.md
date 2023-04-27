@@ -1,6 +1,3 @@
-﻿
-
-<!-- PROJECT LOGO -->
 
   <h1 align="center">Easyops-Job-assignment</h1>
   <p align="center">
@@ -28,14 +25,12 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
-				<li><a href="#configuring">Configuring</a></li>
-				<li><a href="#running">Running</a></li>
+	<li><a href="#running">Running</a></li>
       </ul>
     </li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
-
 
 
 <!-- ABOUT THE PROJECT -->
@@ -44,11 +39,6 @@
 
 ![](/public/imgs/img2.png)
 ![](/public/imgs/img3.png)
-
-![](/public/img/ss2.png)
-![](/public/img/ss3.png)
-![](/public/img/ss5.png)
-![](/public/img/ss4.png)
 
 ### Test Cases
 
