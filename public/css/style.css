@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "JetBrains Mono", monospace;
+}
+
+body {
+  background: linear-gradient(to right, #598dfd, #8441e8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  width: 100vw;
+  padding: 2%;
+  overflow-x: hidden;
+}
+
+/* form section */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 58vh;
+}
+
+.person-form {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  width: 400px;
+  padding: 20px;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-header h2 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.name-inputs {
+  display: flex;
+  gap: 10px;
+}
+
+.input-grp {
+  display: flex;
+  gap: 10px;
+}
+
+input[type="text"],
+input[type="tel"] {
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  width: 100%;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+input[type="text"]::placeholder,
+input[type="tel"]::placeholder {
+  color: #999;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.saveBtn {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+.saveBtn:hover {
+  background-color: #222;
+}
+
+@media screen and (max-width: 480px) {
+  .person-form {
+    width: 300px;
+  }
+
+  .form-header h2 {
+    font-size: 1.5rem;
+  }
+
+  input[type="text"],
+  input[type="tel"] {
+    font-size: 0.9rem;
+  }
+
+  .saveBtn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+
+/* table style */
+.person-table-div {
+  background-color: rgb(116 15 15 / 10%);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  height: auto;
+  margin: 48px;
+  min-width: 50rem;
+}
+
+.person-table-div .person-table-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* search bar style */
+.search-div {
+  height: 28%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1%;
+  margin: 1%;
+}
+
+.search-div .search {
+  width: 100%;
+  height: 3.5rem;
+  border: none;
+  outline: none;
+  border-radius: 10rem;
+  padding: 2%;
+}
+
+.person-table-div table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+.person-table-div table thead {
+  height: 5rem;
+  width: 100%;
+}
+
+.person-table-div table thead th {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.person-table-div table tbody {
+  height: auto;
+}
+
+.person-table-div table tbody tr {
+  height: 5rem !important;
+}
+
+.person-table-div table tbody tr td {
+  text-align: center;
+  height: 3rem;
+}
+
+.person-table-div table tbody tr td .deleteBtn {
+  border: none;
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+.person-table-div table tbody tr td .deleteBtn:hover {
+  background: linear-gradient(to right, red, #5e0202);
+}
+th {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-weight: normal;
+  text-align: left;
+  padding: 10px 15px;
+  position: relative;
+}
+
+th span.sort-icon {
+  font-size: 12px;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+th.sort-name {
+  cursor: pointer;
+}
+
+th.sort-name:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+td {
+  padding: 10px 15px;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}

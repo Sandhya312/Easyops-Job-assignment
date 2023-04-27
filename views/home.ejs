@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Assesment</title>
+</head>
+<body>
+
+    <!-- form section -->
+    <div class="form-container">
+        <form class="person-form" id="person-form" accept="/" method="post" >
+          <div class="form-header">
+            <h2>Register</h2>
+          </div>
+          <div class="form-body">
+            <div class="name-inputs">
+              <div class="input-grp">
+                <input value="" name="FirstName" type="text" id="FirstName" class="FirstName" placeholder="First Name">
+                <input value="" name="LastName" type="text" id="LastName" class="LastName" placeholder="Last Name">
+              </div>
+            </div>
+            <div class="contact-input">
+              <input value="" type="tel" id="contactNo" name="contactNo" class="PhoneNo" placeholder="Phone Number">
+            </div>
+          </div>
+          <div class="form-footer">
+            <button id="" class="saveBtn" type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+   
+   <!-- person table -->
+   <div class="person-table-div">
+    <div class="person-table-search">
+        <h1>People's Details</h1>
+           <!-- search bar -->
+   <div class="search-div">
+    <input type="search" name="Name" class="search" id="searchBar">
+   </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>SN.</th>
+                <th class="sort-name">Name ▲</th>
+
+                  
+
+                <th>Contact</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody id="tBody">
+            <% person.forEach((item,i)=>{ %>
+              <form action="/delete" method="post">
+                <tr>
+                    <td><%= i+1 %>.</td>
+                    <td><%= item.FirstName+' '+ item.LastName %> </td>
+                    <td><%= item.contactNo %></td>
+                    <td>
+                        <button class="deleteBtn" onclick="return confirm('Are you sure you want to delete this item?')" name="DelBtn" value=`<%= item._id %>` >X</button>
+                      </td>
+                </tr>
+              </form>
+
+            <% }) %> 
+        
+        </tbody>
+    </table>
+   </div>
+   
+   <script>
+
+    // delete popup
+    function confirmDelete() {
+      if (window.confirm("Are you sure you want to delete this person?")) {
+        // The user clicked "OK"
+        return true;
+      } else {
+        // The user clicked "Cancel"
+        return false;
+      }
+    }
+
+
+    //search functionality
+const searchInput = document.querySelector('#searchBar');
+const rows = document.querySelectorAll('#tBody tr');
+// Add event listener to the search input field
+searchInput.addEventListener('input', () => {
+  const searchQuery = searchInput.value.toLowerCase().trim();
+  rows.forEach(row => {
+    const name = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+
+    if (name.includes(searchQuery)) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+});
+
+
+  // sorting by name 
+  const tableBody = document.querySelector('#tBody');
+  const tableRows = tableBody.querySelectorAll('tr');
+
+  const sortNameHeader = document.querySelector('.sort-name');
+  let sortNameAsc = true;
+
+  // Sort the table rows by name, either in ascending or descending order
+  const sortTableByName = () => {
+    const rowsArray = Array.from(tableRows);
+    // Sort the array by name
+    rowsArray.sort((rowA, rowB) => {
+      const nameA = rowA.querySelector('td:nth-of-type(2)').textContent.trim();
+      const nameB = rowB.querySelector('td:nth-of-type(2)').textContent.trim();
+      return sortNameAsc ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
+    });
+
+    // Remove the existing table rows and re-insert them in the sorted order
+    tableRows.forEach(row => tableBody.removeChild(row));
+    rowsArray.forEach(row => tableBody.appendChild(row));
+
+    sortNameAsc = !sortNameAsc;
+  };
+  
+  sortNameHeader.addEventListener('click', sortTableByName);
+
+
+  </script>
+</body>
+</html>
