@@ -6,7 +6,7 @@
   <p align="center">
    This is a repository for the Easyops job assignment, which is a web application built using HTML, CSS, JavaScript, EJS, Node.js, Express, and Mongoose.
     <br>
-    <a href="https://easyops-job-assignment-sandhya312.onrender.com/">View Demo</a>
+    <a href="https://easyops-job-assignment-sandhya312.onrender.com/" target="_blank">View Demo</a>
     
   </p>
 </p>
